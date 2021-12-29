@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+        form {
+            margin: auto;
+            width: 40%;
+        }
+        
+        .result {
+            margin: auto;
+            width: 40%;
+            border: 1px solid #ccc;
+        }
+  </style>
+
+  <title>Score Card</title>
+  
+</head>
+<body>
+
+	<div class="result" align="center">
+    	{% if result %}
+     	   <br>
+      	  <br> The score is:
+     	      <p style="font-size:50px">{{ result }}%</p>
+   	 {% endif %}
+	</div> 
+
+  <form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <div style="text-align:center">
+		<legend> <b> SCORE CARD </b> </legend>
+	</div> 
+
+	<br>
+
+        <div style="text-align:center">  
+        <b> DP: </b>
+        <input name="dp_var" type="number">
+        <br>
+        <br>
+        </div>
+
+        <div style="text-align:center">  
+        <b> Tenor: </b>
+        <input name="tenor_var" type="number">
+        <br>
+        <br>
+        </div> 
+
+        <div style="text-align:center">  
+        <b> OTR: </b>
+        <input name="otr_var" type="number">
+        <br>
+        <br>
+        </div>
+
+	<div style="text-align:center">  
+        <b> Marital Status: </b> <br>
+	<input type="radio" name="marital_var" value=1> Divorce &nbsp;
+	<input type="radio" name="marital_var" value=2> Duda  &nbsp;
+	<input type="radio" name="marital_var" value=3> Married  &nbsp;
+	<input type="radio" name="marital_var" value=4> Single &nbsp;
+	<input type="radio" name="marital_var" value=5> Widow/Widower <br>  
+        <br>
+        </div> 
+
+	<div style="text-align:center">  
+        <b> Sales Point Area: </b> <br>
+	<input type="radio" name="sp_var" value=1> DKI 1 &nbsp; 
+	<input type="radio" name="sp_var" value=2> DKI 2 &nbsp;  
+	<input type="radio" name="sp_var" value=3> DKI 3 &nbsp;
+	<input type="radio" name="sp_var" value=4> DKI 4 (MG) &nbsp;
+	<input type="radio" name="sp_var" value=5> JABAR &nbsp;
+	<input type="radio" name="sp_var" value=6> JATENG <br>
+	<input type="radio" name="sp_var" value=7> JATIM 1, BALI, LOMBOK &nbsp;
+	<input type="radio" name="sp_var" value=8> JATIM 2 &nbsp;
+	<input type="radio" name="sp_var" value=9> KALIMANTAN <br>
+	<input type="radio" name="sp_var" value=10> SULBAGSEL &nbsp;
+	<input type="radio" name="sp_var" value=11> SULBAGUT &nbsp;
+	<input type="radio" name="sp_var" value=12> SUMBAGSEL &nbsp;
+	<input type="radio" name="sp_var" value=13> SUMBAGUT <br>
+        <br>
+        </div> 
+
+	<div style="text-align:center">  
+        <b> Dealer Group: </b> <br>
+	<input type="radio" name="dealer_var" value=1> AJM &nbsp;
+	<input type="radio" name="dealer_var" value=2> Andalan &nbsp;
+	<input type="radio" name="dealer_var" value=3> Arista &nbsp;
+	<input type="radio" name="dealer_var" value=4> Bintang Mitra Mobilindo <br> 
+	<input type="radio" name="dealer_var" value=5> BLSS &nbsp;
+	<input type="radio" name="dealer_var" value=6> Eurokars &nbsp;
+	<input type="radio" name="dealer_var" value=7> Hanawa &nbsp;
+	<input type="radio" name="dealer_var" value=8> Hascar &nbsp;
+	<input type="radio" name="dealer_var" value=9> Kumala &nbsp;
+	<input type="radio" name="dealer_var" value=10> Maju Motor <br>
+	<input type="radio" name="dealer_var" value=11> Mimosa &nbsp;
+	<input type="radio" name="dealer_var" value=12> Nusantara &nbsp;
+	<input type="radio" name="dealer_var" value=13> Perdana &nbsp;
+	<input type="radio" name="dealer_var" value=14> Prima <br>
+	<input type="radio" name="dealer_var" value=15> Sinar Galesong Automobil &nbsp;
+	<input type="radio" name="dealer_var" value=16> Sun Motor &nbsp;
+	<input type="radio" name="dealer_var" value=17> TPM <br>
+        <br>
+        </div>
+
+	<div style="text-align:center">  
+        <b> Model: </b> <br>
+	<input type="radio" name="model_var" value=1> ALMAZ &nbsp;
+	<input type="radio" name="model_var" value=2> CONFERO &nbsp;
+	<input type="radio" name="model_var" value=3> CORTEZ &nbsp;
+	<input type="radio" name="model_var" value=4> FORMO &nbsp;
+	<input type="radio" name="model_var" value=5> HS &nbsp;
+	<input type="radio" name="model_var" value=6> ZS <br>  
+        <br>
+        </div> 
+
+        <div style="text-align:center">  
+        <b> Pefindo Score: </b>
+        <input name="pefindo_var" type="number">
+        <br>
+        <br>
+        </div>
+
+        <div style="text-align:center">  
+        <b> Worst Current Arrear: </b>
+        <input name="wca_var" type="number">
+        <br>
+        <br>
+        </div> 
+
+        <div style="text-align:center">  
+        <b> Worst 12 Months Arrear: </b>
+        <input name="w12ma_var" type="number">
+        <br>
+        <br>
+        </div>
+
+        <div style="text-align:center">  
+        <b> Past Due Open Accounts: </b>
+        <input name="pdoc_var" type="number">
+        <br>
+        <br>
+        </div>
+
+        <div style="text-align:center">  
+        <input type="submit"/>  
+        </div> 
+    </fieldset>
+</form>
+<br>
+<br>
+</body>
+</html>
